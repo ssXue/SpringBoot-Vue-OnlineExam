@@ -103,4 +103,10 @@ export default {
 .el-submenu__title i {
     color: #fbfbfc !important;
 }
+.el-menu-item {
+  color: #fff !important;
+}
+.el-menu-item:focus {
+  font-size: 20px;
+}
 </style>

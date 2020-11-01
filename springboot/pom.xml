@@ -74,6 +74,8 @@
     </dependencies>
 
     <build>
+        <defaultGoal>compile</defaultGoal>
+        <directory>${basedir}/output</directory>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
