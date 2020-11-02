@@ -58,7 +58,7 @@ export default new Router({
           component: () => import('@/components/teacher/addAnswer')
         },
         {
-          path: '/addAnswerChildren', //点击试卷跳转到添加题库页面
+          path: '/addAnswerChildren', //点击实验跳转到添加题库页面
           component: () => import('@/components/teacher/addAnswerChildren')
         },
         {

@@ -170,7 +170,7 @@ export default {
         // source: null,
         // totalScore: null,
       },
-      topic: {  //试卷信息
+      topic: {  //实验信息
 
       },
       showQuestion: [], //当前显示题目信息
@@ -206,11 +206,11 @@ export default {
     calcuScore() { //计算答题分数
       
     },
-    getExamData() { //获取当前试卷所有信息
+    getExamData() { //获取当前实验所有信息
       let date = new Date()
       this.startTime = this.getTime(date)
-      let examCode = this.$route.query.examCode //获取路由传递过来的试卷编号
-      this.$axios(`/api/exam/${examCode}`).then(res => {  //通过examCode请求试卷详细信息
+      let examCode = this.$route.query.examCode //获取路由传递过来的实验编号
+      this.$axios(`/api/exam/${examCode}`).then(res => {  //通过examCode请求实验详细信息
         this.examData = { ...res.data.data} //获取实验详情
         this.index = 0
         this.time = this.examData.totalScore //获取分钟数

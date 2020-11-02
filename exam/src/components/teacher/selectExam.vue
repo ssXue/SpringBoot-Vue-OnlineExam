@@ -2,7 +2,7 @@
 <template>
   <div class="exam">
     <el-table :data="pagination.records" border>
-      <el-table-column fixed="left" prop="source" label="试卷名称" width="180"></el-table-column>
+      <el-table-column fixed="left" prop="source" label="实验名称" width="180"></el-table-column>
       <el-table-column prop="description" label="介绍" width="200"></el-table-column>
       <el-table-column prop="institute" label="所属学院" width="120"></el-table-column>
       <el-table-column prop="major" label="所属专业" width="200"></el-table-column>
@@ -10,7 +10,7 @@
       <el-table-column prop="examDate" label="实验日期" width="120"></el-table-column>
       <el-table-column prop="totalTime" label="持续时间" width="120"></el-table-column>
       <el-table-column prop="totalScore" label="总分" width="120"></el-table-column>
-      <el-table-column prop="type" label="试卷类型" width="120"></el-table-column>
+      <el-table-column prop="type" label="实验类型" width="120"></el-table-column>
       <el-table-column prop="tips" label="考生提示" width="400"></el-table-column>
       <el-table-column fixed="right" label="操作" width="150">
         <template slot-scope="scope">
@@ -30,13 +30,13 @@
     </el-pagination>
     <!-- 编辑对话框-->
     <el-dialog
-      title="编辑试卷信息"
+      title="编辑实验信息"
       :visible.sync="dialogVisible"
       width="30%"
       :before-close="handleClose">
       <section class="update">
         <el-form ref="form" :model="form" label-width="80px">
-          <el-form-item label="试卷名称">
+          <el-form-item label="实验名称">
             <el-input v-model="form.source"></el-input>
           </el-form-item>
           <el-form-item label="介绍">
@@ -62,7 +62,7 @@
           <el-form-item label="总分">
             <el-input v-model="form.totalScore"></el-input>
           </el-form-item>
-          <el-form-item label="试卷类型">
+          <el-form-item label="实验类型">
             <el-input v-model="form.type"></el-input>
           </el-form-item>
           <el-form-item label="考生提示">
@@ -82,7 +82,7 @@
 export default {
   data() {
     return {
-      form: {}, //保存点击以后当前试卷的信息
+      form: {}, //保存点击以后当前实验的信息
       pagination: { //分页后的实验信息
         current: 1, //当前页
         total: null, //记录条数
@@ -95,9 +95,9 @@ export default {
     this.getExamInfo()
   },
   methods: {
-    edit(examCode) { //编辑试卷
+    edit(examCode) { //编辑实验
       this.dialogVisible = true
-      this.$axios(`/api/exam/${examCode}`).then(res => { //根据试卷id请求后台
+      this.$axios(`/api/exam/${examCode}`).then(res => { //根据实验id请求后台
         if(res.data.code == 200) {
           this.form = res.data.data
         }
@@ -109,7 +109,7 @@ export default {
           done();
         }).catch(_ => {});
     },
-    submit() { //提交修改后的试卷信息
+    submit() { //提交修改后的实验信息
       this.dialogVisible = false
       this.$axios({
         url: '/api/exam',
@@ -143,7 +143,7 @@ export default {
 
       })
     },
-    getExamInfo() { //分页查询所有试卷信息
+    getExamInfo() { //分页查询所有实验信息
       this.$axios(`/api/exams/${this.pagination.current}/${this.pagination.size}`).then(res => {
         this.pagination = res.data.data
       }).catch(error => {

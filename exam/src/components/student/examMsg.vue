@@ -1,8 +1,8 @@
-// 点击试卷后的缩略信息
+// 点击实验后的缩略信息
 <template>
   <div id="msg">
     <div class="title">
-      <span>试卷列表</span>
+      <span>实验列表</span>
       <span>/  {{examData.source}}</span>
     </div>
     <div class="wrapper">
@@ -98,7 +98,7 @@ export default {
         // source: null,
         // totalScore: null,
       },
-      topic: {  //试卷信息
+      topic: {  //实验信息
 
       },
     }
@@ -109,8 +109,8 @@ export default {
   methods: {
     //初始化页面数据
     init() {
-      let examCode = this.$route.query.examCode //获取路由传递过来的试卷编号
-      this.$axios(`/api/exam/${examCode}`).then(res => {  //通过examCode请求试卷详细信息
+      let examCode = this.$route.query.examCode //获取路由传递过来的实验编号
+      this.$axios(`/api/exam/${examCode}`).then(res => {  //通过examCode请求实验详细信息
         res.data.data.examDate = res.data.data.examDate.substr(0,10)
         this.examData = { ...res.data.data}
         let paperId = this.examData.paperId

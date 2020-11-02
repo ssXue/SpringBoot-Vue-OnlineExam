@@ -24,8 +24,8 @@
             <span>已过期</span>
           </el-badge>
         </li>
-        <li class="search-li"><div class="icon"><input type="text" placeholder="试卷名称" class="search" v-model="key"><i class="el-icon-search"></i></div></li>
-        <li><el-button type="primary" @click="search()">搜索试卷</el-button></li>
+        <li class="search-li"><div class="icon"><input type="text" placeholder="实验名称" class="search" v-model="key"><i class="el-icon-search"></i></div></li>
+        <li><el-button type="primary" @click="search()">搜索实验</el-button></li>
       </ul>
       <ul class="paper" v-loading="loading">
         <li class="item" v-for="(item,index) in pagination.records" :key="index">
@@ -96,7 +96,7 @@ export default {
       this.pagination.current = val
       this.getExamInfo()
     },
-    //搜索试卷
+    //搜索实验
     search() {
       this.$axios('/api/exams').then(res => {
         if(res.data.code == 200) {
@@ -108,7 +108,7 @@ export default {
         }
       })
     },
-    //跳转到试卷详情页
+    //跳转到实验详情页
     toExamMsg(examCode) {
       this.$router.push({path: '/examMsg', query: {examCode: examCode}})
       console.log(examCode)

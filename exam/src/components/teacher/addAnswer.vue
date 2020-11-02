@@ -1,8 +1,8 @@
-//获取试卷并跳转到添加题库
+//获取实验并跳转到添加题库
 <template>
   <div class="exam">
     <el-table :data="pagination.records" border>
-      <el-table-column fixed="left" prop="source" label="试卷名称" width="180"></el-table-column>
+      <el-table-column fixed="left" prop="source" label="实验名称" width="180"></el-table-column>
       <el-table-column prop="description" label="介绍" width="200"></el-table-column>
       <el-table-column prop="institute" label="所属学院" width="120"></el-table-column>
       <el-table-column prop="major" label="所属专业" width="200"></el-table-column>
@@ -10,7 +10,7 @@
       <el-table-column prop="examDate" label="实验日期" width="120"></el-table-column>
       <el-table-column prop="totalTime" label="持续时间" width="120"></el-table-column>
       <el-table-column prop="totalScore" label="总分" width="120"></el-table-column>
-      <el-table-column prop="type" label="试卷类型" width="120"></el-table-column>
+      <el-table-column prop="type" label="实验类型" width="120"></el-table-column>
       <el-table-column prop="tips" label="考生提示" width="400"></el-table-column>
       <el-table-column fixed="right" label="操作" width="150">
         <template slot-scope="scope">
@@ -34,7 +34,7 @@
 export default {
   data() {
     return {
-      form: {}, //保存点击以后当前试卷的信息
+      form: {}, //保存点击以后当前实验的信息
       pagination: { //分页后的实验信息
         current: 1, //当前页
         total: null, //记录条数
@@ -46,7 +46,7 @@ export default {
     this.getExamInfo()
   },
   methods: {
-    getExamInfo() { //分页查询所有试卷信息
+    getExamInfo() { //分页查询所有实验信息
       this.$axios(`/api/exams/${this.pagination.current}/${this.pagination.size}`).then(res => {
         this.pagination = res.data.data
       }).catch(error => {

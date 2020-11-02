@@ -2,7 +2,7 @@
 <template>
   <section class="add">
     <el-form ref="form" :model="form" label-width="80px">
-      <el-form-item label="试卷名称">
+      <el-form-item label="实验名称">
         <el-input v-model="form.source"></el-input>
       </el-form-item>
       <el-form-item label="介绍">

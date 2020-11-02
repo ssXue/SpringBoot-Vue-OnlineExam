@@ -28,7 +28,7 @@
     </el-pagination>
     <!-- 编辑对话框-->
     <el-dialog
-      title="编辑试卷信息"
+      title="编辑实验信息"
       :visible.sync="dialogVisible"
       width="30%"
       :before-close="handleClose">
@@ -76,7 +76,7 @@ export default {
         size: 6, //每页条数
       },
       dialogVisible: false, //对话框
-      form: {}, //保存点击以后当前试卷的信息
+      form: {}, //保存点击以后当前实验的信息
     };
   },
   created() {
@@ -84,7 +84,7 @@ export default {
   },
   methods: {
     getTeacherInfo() {
-      //分页查询所有试卷信息
+      //分页查询所有实验信息
       this.$axios(`/api/teachers/${this.pagination.current}/${this.pagination.size}`).then(res => {
         this.pagination = res.data.data;
       }).catch(error => {});

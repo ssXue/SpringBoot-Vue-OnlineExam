@@ -332,9 +332,9 @@ export default {
       ],
       paperId: null,
       optionValue: '选择题', //题型选中值
-      subject: '', //试卷名称用来接收路由参数
+      subject: '', //实验名称用来接收路由参数
       postChange: { //选择题提交内容
-        subject: '', //试卷名称
+        subject: '', //实验名称
         level: '', //难度等级选中值 
         rightAnswer: '', //正确答案选中值
         section: '', //对应章节
@@ -346,7 +346,7 @@ export default {
         answerD: '',
       },
       postFill: { //填空题提交内容
-        subject: '', //试卷名称
+        subject: '', //实验名称
         level: '', //难度等级选中值 
         answer: '', //正确答案
         section: '', //对应章节
@@ -354,7 +354,7 @@ export default {
         analysis: '', //解析
       },
       postJudge: { //判断题提交内容
-        subject: '', //试卷名称
+        subject: '', //实验名称
         level: '', //难度等级选中值 
         answer: '', //正确答案
         section: '', //对应章节
@@ -363,7 +363,7 @@ export default {
       },
       postPaper: { //实验管理表对应字段
         paperId: null,
-        questionType: null, // 试卷类型 1--选择题  2--填空题   3--判断题
+        questionType: null, // 实验类型 1--选择题  2--填空题   3--判断题
         questionId: null,
       }
     };
@@ -407,7 +407,7 @@ export default {
       })
     },
     getParams() {
-      let subject = this.$route.query.subject //获取试卷名称
+      let subject = this.$route.query.subject //获取实验名称
       let paperId = this.$route.query.paperId //获取paperId
       this.paperId = paperId
       this.subject = subject
