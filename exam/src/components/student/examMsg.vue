@@ -21,7 +21,7 @@
         <li>更新于{{examData.examDate}}</li>
         <li>来自 {{examData.institute}}</li>
         <li class="btn">{{examData.type}}</li>
-        <li class="right"><el-button @click="toAnswer(examData.examCode)">开始答题</el-button></li>
+        <li class="right"><el-button @click="toAnswer(examData.examCode)">开始实验</el-button></li>
       </ul>
       <ul class="info">
         <li @click="dialogVisible = true"><a href="javascript:;"><i class="iconfont icon-info"></i>考生须知</a></li>
@@ -94,7 +94,7 @@ export default {
       activeName: '0',  //默认打开序号
       topicCount: [],//每种类型题目的总数
       score: [],  //每种类型分数的总数
-      examData: { //考试信息
+      examData: { //实验信息
         // source: null,
         // totalScore: null,
       },

@@ -7,7 +7,7 @@
     </div>
     <div class="total">
       <div class="look">
-        本次考试成绩
+        本次实验成绩
       </div>
       <div class="show">
         <div class="img1" :class="{'img1Transform': imgShow}">
@@ -44,8 +44,8 @@ export default {
         pass1: require('@/assets/img/good1.jpg'),
         pass2: require('@/assets/img/good2.gif')
       },
-      startTime: null, //考试开始时间
-      endTime: null, //考试结束时间
+      startTime: null, //实验开始时间
+      endTime: null, //实验结束时间
     }
   },
   created() {

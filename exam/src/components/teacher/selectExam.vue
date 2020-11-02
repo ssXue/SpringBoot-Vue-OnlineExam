@@ -1,4 +1,4 @@
-//查询所有考试
+//查询所有实验
 <template>
   <div class="exam">
     <el-table :data="pagination.records" border>
@@ -7,7 +7,7 @@
       <el-table-column prop="institute" label="所属学院" width="120"></el-table-column>
       <el-table-column prop="major" label="所属专业" width="200"></el-table-column>
       <el-table-column prop="grade" label="年级" width="100"></el-table-column>
-      <el-table-column prop="examDate" label="考试日期" width="120"></el-table-column>
+      <el-table-column prop="examDate" label="实验日期" width="120"></el-table-column>
       <el-table-column prop="totalTime" label="持续时间" width="120"></el-table-column>
       <el-table-column prop="totalScore" label="总分" width="120"></el-table-column>
       <el-table-column prop="type" label="试卷类型" width="120"></el-table-column>
@@ -51,7 +51,7 @@
           <el-form-item label="年级">
             <el-input v-model="form.grade"></el-input>
           </el-form-item>
-          <el-form-item label="考试日期">
+          <el-form-item label="实验日期">
             <el-col :span="11">
               <el-date-picker type="date" placeholder="选择日期" v-model="form.examDate" style="width: 100%;"></el-date-picker>
             </el-col>
@@ -83,7 +83,7 @@ export default {
   data() {
     return {
       form: {}, //保存点击以后当前试卷的信息
-      pagination: { //分页后的考试信息
+      pagination: { //分页后的实验信息
         current: 1, //当前页
         total: null, //记录条数
         size: 4 //每页条数

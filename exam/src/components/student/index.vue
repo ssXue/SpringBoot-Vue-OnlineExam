@@ -1,11 +1,11 @@
-<!--学生考试首页-->
+<!--学生实验首页-->
 <template>
   <div id="student">
     <el-row class="padding-50">
       <el-col :span="24">
         <ul class="list">
           <li class="logo"><i class="iconfont icon-kaoshi"></i><span>Exam-Online</span></li>
-          <li><a href="javascript:;" @click="exam()">我的试卷</a></li>
+          <li><a href="javascript:;" @click="exam()">我的实验</a></li>
           <li><a href="javascript:;" @click="practice()">我的练习</a></li>
           <li><router-link to="/scoreTable">我的分数</router-link></li>
           <li><router-link to="/message">给我留言</router-link></li>
@@ -68,7 +68,7 @@ export default {
       this.$store.commit("practice", isPractice)
       this.$router.push({path:'/startExam'})
     },
-    exam() { //跳转考试模式
+    exam() { //跳转实验模式
      let isPractice = false
       this.$store.commit("practice", isPractice)
       this.$router.push({path:'/student'})

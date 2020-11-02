@@ -68,7 +68,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="final" @click="commit()">结束考试</div>
+              <div class="final" @click="commit()">结束实验</div>
             </div>
           </div>
         </transition>  
@@ -147,9 +147,9 @@ export default {
   store,
   data() {
     return {
-      startTime: null, //考试开始时间
-      endTime: null, //考试结束时间
-      time: null, //考试持续时间
+      startTime: null, //实验开始时间
+      endTime: null, //实验结束时间
+      time: null, //实验持续时间
       reduceAnswer:[],  //vue官方不支持3层以上数据嵌套,如嵌套则会数据渲染出现问题,此变量直接接收3层嵌套时的数据。
       answerScore: 0, //答题总分数
       bg_flag: false, //已答标识符,已答改变背景色
@@ -166,7 +166,7 @@ export default {
       },
       topicCount: [],//每种类型题目的总数
       score: [],  //每种类型分数的总数
-      examData: { //考试信息
+      examData: { //实验信息
         // source: null,
         // totalScore: null,
       },
@@ -211,7 +211,7 @@ export default {
       this.startTime = this.getTime(date)
       let examCode = this.$route.query.examCode //获取路由传递过来的试卷编号
       this.$axios(`/api/exam/${examCode}`).then(res => {  //通过examCode请求试卷详细信息
-        this.examData = { ...res.data.data} //获取考试详情
+        this.examData = { ...res.data.data} //获取实验详情
         this.index = 0
         this.time = this.examData.totalScore //获取分钟数
         let paperId = this.examData.paperId
@@ -432,12 +432,12 @@ export default {
       })
       console.log(`目前总分${finalScore}`)
       if(this.time != 0) {
-        this.$confirm("考试结束时间未到,是否提前交卷","友情提示",{
-          confirmButtonText: '立即交卷',
+        this.$confirm("实验结束时间未到,是否提前结束","友情提示",{
+          confirmButtonText: '立即结束',
           cancelButtonText: '再检查一下',
           type: 'warning'
         }).then(() => {
-          console.log("交卷")
+          console.log("结束")
           let date = new Date()
           this.endTime = this.getTime(date)
           let answerDate = this.endTime.substr(0,10)
@@ -446,7 +446,7 @@ export default {
             url: '/api/score',
             method: 'post',
             data: {
-              examCode: this.examData.examCode, //考试编号
+              examCode: this.examData.examCode, //实验编号
               studentId: this.userInfo.id, //学号
               subject: this.examData.source, //课程名称
               etScore: finalScore, //答题成绩
@@ -473,10 +473,10 @@ export default {
           this.$message({
             showClose: true,
             type: 'error',
-            message: '考生注意,考试时间还剩10分钟！！！'
+            message: '考生注意,实验时间还剩10分钟！！！'
           })
           if(this.time == 0) {
-            console.log("考试时间已到,强制交卷。")
+            console.log("实验时间已到,强制结束。")
           }
         }
       },1000 * 60)

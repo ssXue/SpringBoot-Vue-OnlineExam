@@ -33,7 +33,7 @@ export default {
   data() {
     return {
       pagination: {
-        //分页后的考试信息
+        //分页后的实验信息
         current: 1, //当前页
         total: null, //记录条数
         size: 6 //每页条数

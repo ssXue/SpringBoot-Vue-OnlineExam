@@ -3,7 +3,7 @@
   <div id="grade">
     <div ref="box" class="box"></div>
     <div class="notFound" v-if="isNull">
-      <i class="iconfont icon-LC_icon_tips_fill"></i><span>该考生未参加考试</span>
+      <i class="iconfont icon-LC_icon_tips_fill"></i><span>该考生未参加实验</span>
     </div>
   </div>
 </template>

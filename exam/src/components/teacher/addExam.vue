@@ -1,4 +1,4 @@
-<!-- 添加考试 -->
+<!-- 添加实验 -->
 <template>
   <section class="add">
     <el-form ref="form" :model="form" label-width="80px">
@@ -17,7 +17,7 @@
       <el-form-item label="年级">
         <el-input v-model="form.grade"></el-input>
       </el-form-item>
-      <el-form-item label="考试日期">
+      <el-form-item label="实验日期">
         <el-col :span="11">
           <el-date-picker placeholder="选择日期" v-model="form.examDate" style="width: 100%;"></el-date-picker>
         </el-col>
@@ -28,7 +28,7 @@
       <el-form-item label="总分">
         <el-input v-model="form.totalScore"></el-input>
       </el-form-item>
-      <el-form-item label="考试类型">
+      <el-form-item label="实验类型">
         <el-input v-model="form.type"></el-input>
       </el-form-item>
       <el-form-item label="考生提示">

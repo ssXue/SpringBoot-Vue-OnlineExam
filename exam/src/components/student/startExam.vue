@@ -1,4 +1,4 @@
-// 我的考试页面
+// 我的实验页面
 <template>
   <div id="myExam">
     <div class="title">我的练习</div>
@@ -60,8 +60,8 @@ export default {
     return {
       loading: false,
       key: null, //搜索关键字
-      allExam: null, //所有考试信息
-      pagination: { //分页后的考试信息
+      allExam: null, //所有实验信息
+      pagination: { //分页后的实验信息
         current: 1, //当前页
         total: null, //记录条数
         size: 6 //每页条数
@@ -76,7 +76,7 @@ export default {
     
   // },
   methods: {
-    //获取当前所有考试信息
+    //获取当前所有实验信息
     getExamInfo() {
       this.$axios(`/api/exams/${this.pagination.current}/${this.pagination.size}`).then(res => {
         this.pagination = res.data.data

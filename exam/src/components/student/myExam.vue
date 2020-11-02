@@ -1,12 +1,12 @@
-// 我的试卷页面
+// 我的实验页面
 <template>
   <div id="myExam">
-    <div class="title">我的试卷</div>
+    <div class="title">我的实验</div>
     <div class="wrapper">
       <ul class="top">
-        <li class="order">试卷列表</li>
-        <li class="search-li"><div class="icon"><input type="text" placeholder="试卷名称" class="search" v-model="key"><i class="el-icon-search"></i></div></li>
-        <li><el-button type="primary" @click="search()">搜索试卷</el-button></li>
+        <li class="order">实验列表</li>
+        <li class="search-li"><div class="icon"><input type="text" placeholder="实验名称" class="search" v-model="key"><i class="el-icon-search"></i></div></li>
+        <li><el-button type="primary" @click="search()">搜索实验</el-button></li>
       </ul>
       <ul class="paper" v-loading="loading">
         <li class="item" v-for="(item,index) in pagination.records" :key="index">
@@ -41,8 +41,8 @@ export default {
     return {
       loading: false,
       key: null, //搜索关键字
-      allExam: null, //所有考试信息
-      pagination: { //分页后的考试信息
+      allExam: null, //所有实验信息
+      pagination: { //分页后的实验信息
         current: 1, //当前页
         total: null, //记录条数
         size: 6 //每页条数
@@ -57,7 +57,7 @@ export default {
     
   // },
   methods: {
-    //获取当前所有考试信息
+    //获取当前所有实验信息
     getExamInfo() {
       this.$axios(`/api/exams/${this.pagination.current}/${this.pagination.size}`).then(res => {
         this.pagination = res.data.data
@@ -77,7 +77,7 @@ export default {
       this.pagination.current = val
       this.getExamInfo()
     },
-    //搜索试卷
+    //搜索实验
     search() {
       this.$axios('/api/exams').then(res => {
         if(res.data.code == 200) {
@@ -89,7 +89,7 @@ export default {
         }
       })
     },
-    //跳转到试卷详情页
+    //跳转到实验详情页
     toExamMsg(examCode) {
       this.$router.push({path: '/examMsg', query: {examCode: examCode}})
       console.log(examCode)

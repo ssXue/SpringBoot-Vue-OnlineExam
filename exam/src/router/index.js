@@ -34,15 +34,15 @@ export default new Router({
           component: () => import('@/components/teacher/allStudentsGrade')
         },
         {
-          path: '/examDescription', //考试管理功能描述
+          path: '/examDescription', //实验管理功能描述
           component: () => import('@/components/teacher/examDescription')
         },
         {
-          path: '/selectExam', //查询所有考试
+          path: '/selectExam', //查询所有实验
           component: () => import('@/components/teacher/selectExam')
         },
         {
-          path: '/addExam', //添加考试
+          path: '/addExam', //添加实验
           component: () => import('@/components/teacher/addExam')
         },
         {

@@ -361,7 +361,7 @@ export default {
         question: '', //题目
         analysis: '', //解析
       },
-      postPaper: { //考试管理表对应字段
+      postPaper: { //实验管理表对应字段
         paperId: null,
         questionType: null, // 试卷类型 1--选择题  2--填空题   3--判断题
         questionId: null,
